@@ -14,7 +14,8 @@ async function main() {
   // Deploy the ViewAndPure contract
   const ViewAndPureContract = await ethers.getContractFactory("ViewAndPure");
   const viewAndPureInstance = await ViewAndPureContract.deploy();
-  await viewAndPureInstance.deployed();
+  await viewAndPureInstance.deployed()
+  ;
   console.log("ViewAndPure contract deployed at:", viewAndPureInstance.address);
 }
 
