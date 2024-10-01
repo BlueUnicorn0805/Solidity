@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
 // Make sure EVM version and VM set to Cancun
@@ -29,7 +30,9 @@ contract TestStorage {
     function test() public {
         val = 123;
         bytes memory b = "";
-        msg.sender.call(b);
+
+        (bool success, ) = msg.sender.call(b);
+        require(success, "Call failed");
     }
 }
 
@@ -41,7 +44,8 @@ contract TestTransientStorage {
             tstore(SLOT, 321)
         }
         bytes memory b = "";
-        msg.sender.call(b);
+        (bool success, ) = msg.sender.call(b);
+        require(success, "Call failed");
     }
 
     function val() public view returns (uint256 v) {
@@ -65,7 +69,8 @@ contract ReentrancyGuard {
     function test() public lock {
         // Ignore call error
         bytes memory b = "";
-        msg.sender.call(b);
+        (bool success, ) = msg.sender.call(b);
+        require(success, "Call failed");
     }
 }
 
@@ -87,6 +92,7 @@ contract ReentrancyGuardTransient {
     function test() external lock {
         // Ignore call error
         bytes memory b = "";
-        msg.sender.call(b);
+        (bool success, ) = msg.sender.call(b);
+        require(success, "Call failed");
     }
 }
