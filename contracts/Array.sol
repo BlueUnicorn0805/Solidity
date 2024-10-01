@@ -42,8 +42,14 @@ contract Array {
         delete arr[index];
     }
 
-    function examples() external {
+    function examples() external pure returns (uint256[] memory) {
         // create array in memory, only fixed size can be created
         uint256[] memory a = new uint256[](5);
+
+         // Populate the array with values (for demonstration)
+        for (uint256 i = 0; i < 5; i++) {
+            a[i] = i * 10; // Assigning values to the array
+        }
+        return a; // Return the populated array
     }
 }
