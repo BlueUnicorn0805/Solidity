@@ -48,7 +48,7 @@ contract C is A {
     }
 }
 
-contract D is B, C {
+contract D_Calling is B, C {
     // Try:
     // - Call D.foo and check the transaction logs.
     //   Although D inherits A, B and C, it only called C and then A.
