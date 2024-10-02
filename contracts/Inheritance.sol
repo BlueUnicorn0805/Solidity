@@ -36,7 +36,7 @@ contract C is A {
 // different contracts, parent contracts are searched from
 // right to left, and in depth-first manner.
 
-contract D is B, C {
+contract D_Inheritance is B, C {
     // D.foo() returns "C"
     // since C is the right most parent contract with function foo()
     function foo() public pure override(B, C) returns (string memory) {
