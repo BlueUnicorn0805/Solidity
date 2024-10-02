@@ -4,7 +4,7 @@ const { ethers } = require("hardhat");
 
 async function main() {
   // Get the contract factory for the contract you want to deploy.
-  const ContractFactory = await ethers.getContractFactory("D");
+  const ContractFactory = await ethers.getContractFactory("D_Inheritance");
 
   // Deploy the contract.
   const contract = await ContractFactory.deploy();
